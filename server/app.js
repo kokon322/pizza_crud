@@ -1,5 +1,5 @@
 const path = require('path');
-require('dotenv').config({path: path.join(process.cwd(), 'phone_shop', 'server', '.env')});
+require('dotenv').config({path: path.join(process.cwd(), 'pizza_crud', 'server', '.env')});
 const express = require('express');
 const mongoose = require('mongoose');
 
