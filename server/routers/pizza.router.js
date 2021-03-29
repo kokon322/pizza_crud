@@ -1,11 +1,12 @@
 const router = require('express').Router();
 
 const {pizzaController: {createPizza, getAllPizza, updatePizza, deletePizza}} = require('../controllers');
+const {pizzaMiddleware: {isPizzaValid, isPizzaPresentInDB}}= require('../middlewares');
 
 router
-    .post('/', createPizza)
+    .post('/', isPizzaValid, createPizza)
     .get('/', getAllPizza)
-    .put('/', updatePizza)
-    .delete('/', deletePizza);
+    .put('/', isPizzaPresentInDB, updatePizza)
+    .delete('/', isPizzaPresentInDB, deletePizza);
 
 module.exports = router;
