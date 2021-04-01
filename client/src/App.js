@@ -1,9 +1,11 @@
-import './App.css';
 import AllPizza from "./components/all-pizza/AllPizza";
+import Header from "./components/header/Header";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
-        <div className="App">
+        <div>
+            <Header/>
             <AllPizza/>
         </div>
     );

@@ -23,8 +23,8 @@ export const addOnePizza = async () => {
 
 export const updatePizzaById = async (id) =>{
     return await AXIOS.put(`/pizza/?id=${id}`,{
-        name: "АМЕРІКАНО “DE LUXE”",
-        description: "АМЕРІКАНО “DE LUXE”",
+        name: "Евген “DE LUXE”",
+        description: "ЕВГЕН МЕГА ДЕЛЮКС МАН",
         img: "https://terramare.vn.ua/wp-content/uploads/2018/11/%D0%B0%D0%BC%D0%B5%D1%80%D0%B8%D0%BA%D0%B0%D0%BD%D0%BE-min-600x400.jpeg"
     })
 }
