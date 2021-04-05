@@ -3,7 +3,6 @@ const Joi = require('joi');
 module.exports = Joi.object({
     name: Joi
         .string()
-        .alphanum()
         .required()
         .min(2)
         .max(25),

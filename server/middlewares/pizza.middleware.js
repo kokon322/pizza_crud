@@ -6,7 +6,6 @@ const {pizzaValidator} = require('../validators');
 const isPizzaValid = async (req, res, next) => {
     try {
         const {error} = await pizzaValidator.validate(req.body);
-
         if (error) {
             throw new ErrorHandler(PIZZA_IS_NOT_VALID.status, PIZZA_IS_NOT_VALID.message);
         }
