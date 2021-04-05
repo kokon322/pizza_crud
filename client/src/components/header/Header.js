@@ -1,13 +1,12 @@
-import React from 'react';
-import {Button, Form, Nav, Navbar} from "react-bootstrap";
+import React, {useState} from 'react';
+import {Button, Form, Modal, ModalBody, Nav, Navbar} from "react-bootstrap";
+import ModalHeader from "react-bootstrap/ModalHeader";
 
 const Header = () => {
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        const {target: [{value: name}, {value: email}, {value: password}, {value: age}]} = e;
-        console.log(name, email, password, age);
-    }
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(!show);
 
     return (
         <>
@@ -15,20 +14,39 @@ const Header = () => {
                 <Navbar.Brand href="home">Pizza CRUD</Navbar.Brand>
                 <Nav className="mr-auto"/>
                 <Form inline>
-                    <Button variant="outline-info">Add New Pizza</Button>
+                    <Button onClick={handleClose} variant="outline-info">Add New Pizza</Button>
                 </Form>
             </Navbar>
-            <div>
-                <h2>this is input</h2>
-                <form onSubmit={onSubmit}>
-                    <input type="text" placeholder="name"/>
-                    <input type="email" placeholder="email"/>
-                    <input type="password" placeholder="password"/>
-                    <input type="number" placeholder="age"/>
-                    <br/>
-                    <button type="submit">submit</button>
-                </form>
-            </div>
+            <Modal show={show} onHide={handleClose}>
+                <ModalHeader closeButton>
+                    <Modal.Title>
+                        Add new Pizza
+                    </Modal.Title>
+                </ModalHeader>
+                <ModalBody>
+                    <Form>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>
+                                Name of Pizza
+                            </Form.Label>
+                            <Form.Control type="text" placeholder="margarita"/>
+                        </Form.Group>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>
+                                Description of Pizza
+                            </Form.Label>
+                            <Form.Control type="text" placeholder="very special pizza for you"/>
+                        </Form.Group>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>
+                                URL IMG of Pizza
+                            </Form.Label>
+                            <Form.Control type="text" placeholder="url?sa=i&url=http%3A%2F%2F"/>
+                        </Form.Group>
+                    </Form>
+                </ModalBody>
+                <Button variant="primary">add new Pizza</Button>
+            </Modal>
         </>
     );
 };

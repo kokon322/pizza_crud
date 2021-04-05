@@ -37,7 +37,7 @@ const AllPizza = () => {
                     {pizza.map(pizza =>
                         <div className="d-inline-block " key={pizza.id}>
                             {isOpen ?
-                                <Card style={{width: '22rem'}}>
+                                <Card style={{width: '22rem'}} className="m-2">
                                     <Card.Img variant="top" src={pizza.img}/>
                                     <Card.Body>
                                         <Card.Title>{pizza.name}</Card.Title>
@@ -49,11 +49,11 @@ const AllPizza = () => {
                                     </Card.Body>
                                 </Card>
                                 :
-                                <Card style={{width: '22rem'}}>
+                                <Card style={{width: '22rem'}} className="m-2">
                                     <Card.Img variant="top" src={pizza.img}/>
                                     <Card.Body>
                                         <input placeholder={pizza.name}/>
-                                        <textarea placeholder={pizza.description} cols="30" rows="8"/>
+                                        <textarea placeholder={pizza.description} cols="30" rows="8"/><br/>
                                         <Button className="m-1" onClick={isOpenHandler}
                                                 variant="primary">open</Button>
                                         <Button className="m-1" onClick={() => deleteHandler(pizza.id)}
@@ -67,8 +67,6 @@ const AllPizza = () => {
                     )}
 
                 </div>
-
-
                 :
                 <div>Not Found Pizza</div>
             }

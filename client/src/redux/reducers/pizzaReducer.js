@@ -11,7 +11,10 @@ export const reducer = (state = initialState,action) => {
         case 'UPDATE_PIZZA': {
             return
         }
-        case '' : {
+        case 'DELETE_PIZZA' : {
+            return
+        }
+        case 'ADD_NEW_PIZZA': {
             return
         }
         default: {
